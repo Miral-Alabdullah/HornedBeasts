@@ -5,7 +5,6 @@ import Card from 'react-bootstrap/Card';
 export class SelectedBeast extends Component {
 	
   render() {
-	  console.log(this.props.title);
 	  return ( 
 	    <div>
 	      <Modal show={this.props.show}>

@@ -29,11 +29,18 @@ export class App extends Component {
 		  });
 	}
 
+	showingResultsBasedOnTheForm=(numberOfHornsBased)=>{
+	  this.setState({
+	    JsonGivenData:numberOfHornsBased,
+	  });
+	  }
+
 	render() {
 	  return (
 	      <div>
 	        <Header />
 	        <Main 
+			  showingResultsBasedOnTheForm={this.showingResultsBasedOnTheForm}
 	          JsonGivenData={JsonGivenData}
 			  gettingTheModal={this.gettingTheModal}
 	        />
