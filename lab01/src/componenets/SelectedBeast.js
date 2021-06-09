@@ -1,39 +1,30 @@
 import React, { Component } from 'react';
 import {Button, Modal} from 'react-bootstrap';
-
+import Card from 'react-bootstrap/Card';
 
 export class SelectedBeast extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      show: false,
-    };
-  }
-
-	gettingTheModal = () => {
-	  this.setState({show:!this.state.show});
-	}
-	render() {
+	
+  render() {
+	  console.log(this.props.title);
 	  return ( 
 	    <div>
-
-	      <Modal show={this.show} onHide={} animation={false}>
-	        <Modal.Header closeButton>
-	          <Modal.Title>Modal heading</Modal.Title>
+	      <Modal show={this.props.show}>
+	        <Modal.Header >
+	          <Modal.Title>{this.props.title}</Modal.Title>
 	        </Modal.Header>
-	        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+	        <Modal.Body>
+            <Card.Img variant="top" src={this.props.imageUrl} height='250em' />
+            <p>{this.props.description}</p>
+          </Modal.Body>
 	        <Modal.Footer>
-	          <Button variant="secondary" onClick={}>
-            Close
-	          </Button>
-	          <Button variant="primary" onClick={}>
-            Save Changes
+	          <Button variant="secondary" onClick={this.gettingTheModal}>
+				  Close
 	          </Button>
 	        </Modal.Footer>
 	      </Modal>
 	    </div>
 	  );
-	}
+  }
 }
 
 export default SelectedBeast;
@@ -41,13 +32,3 @@ export default SelectedBeast;
 
 
 
-//   constructor (props){
-//     super(props);
-//     this.state={
-//       show: false,
-//     };
-//   }
-
-//   showingModal = () => {
-// 	  this.props.gettingTheModal();
-//   }

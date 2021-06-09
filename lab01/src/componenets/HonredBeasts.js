@@ -7,8 +7,6 @@ class HornedBeasts extends React.Component {
     super(props);
     this.state = {
       vote: 0,
-	 show: false,
-
     };
   }
 
@@ -19,6 +17,7 @@ class HornedBeasts extends React.Component {
 	  });
 	  this.props.gettingTheModal();
 	}
+
 
 	render() {
 	  return(
