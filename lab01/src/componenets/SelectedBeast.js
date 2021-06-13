@@ -16,10 +16,10 @@ export class SelectedBeast extends Component {
 	    <div>
         <Modal show={this.props.show}>
           <Modal.Header>
-			  <Modal.Title>{this.state.SelectedItem.title}</Modal.Title>
+			  <Modal.Title>{this.props.SelectedProps.title}</Modal.Title>
           </Modal.Header>
-          <Modal.Body><img src={this.props.SelectedProps.imageUrl} alt={this.state.SelectedItem.title} width='100%'/>
-		  <p>{this.state.SelectedItem.description}</p>
+          <Modal.Body><img src={this.props.SelectedProps.imageUrl} alt={this.props.SelectedProps.title} width='100%'/>
+		  <p>{this.props.SelectedProps.description}</p>
 		  </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.state.closingTheModal}>
