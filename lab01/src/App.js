@@ -12,37 +12,43 @@ export class App extends Component {
 	  super(props);
 	  this.state = {
       show: false,
-      //   SelectedProps: {},
-      SelectedTitleBeast: '',
-      SelectedImgBeast: '',
-      SelectedDescBeast: '',
+      SelectedProps: {},
 	  };
   };
 	
-	gettingTheModal = (title,imageUrl,description) => {
+	gettingTheModal = (previosProps) => {
 		  this.setState({
 	    show:!this.state.show,
-	    // SelectedProps: previosProps,
-	    SelectedTitleBeast: title,
-	    SelectedImgBeast: imageUrl,
-	    SelectedDescBeast: description,
+	    SelectedProps: previosProps,
 		  });
 	}
+
+	closingTheModal = () => {
+	  this.setState({
+	    show: false,
+	  });
+	}
+
+	showingResultsBasedOnTheForm=(numberOfHornsBased)=>{
+	  this.setState({
+	    JsonGivenData:numberOfHornsBased,
+	  });
+	  }
 
 	render() {
 	  return (
 	      <div>
 	        <Header />
 	        <Main 
+			  showingResultsBasedOnTheForm={this.showingResultsBasedOnTheForm}
 	          JsonGivenData={JsonGivenData}
 			  gettingTheModal={this.gettingTheModal}
+			  SelectedProps={this.state.SelectedProps}
 	        />
 	        <SelectedBeast
 	          show={this.state.show}
-	        //   SelectedProps={this.state.SelectedProps}
-	        title={this.state.SelectedTitleBeast}
-	        imageUrl={this.state.SelectedImgBeast}
-	        description={this.state.SelectedDescBeast}
+			  closingTheModal={this.closingTheModal}
+	          SelectedProps={this.state.SelectedProps}
 	        />
 	        <Footer />
 	      </div>
