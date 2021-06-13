@@ -8,20 +8,13 @@ class Main extends React.Component {
 
 
 	rederingTheItems = (e) => {
-	  console.log(e.target.value);
-	  let shortcutVar = e.target.value;
-	  let showingResults;
+	  console.log(this.gallery);
+	  const shortcutVar = Number(e.target.value);
+	  let gallery = JsonGivenData;
 	  if(shortcutVar) {
-	    showingResults = JsonGivenData.filter((value) => {
-	      if (value.horns === shortcutVar) {
-	        return value;
-	      }
-	      return showingResults;
-	    });
-	  } else {
-	    showingResults = JsonGivenData;
+	    gallery = JsonGivenData.filter((value) =>value.horns === shortcutVar);
 	  }
-	  this.props.showingResultsBasedOnTheForm(this.props.SelectedProps);
+	    this.props.updateAllBeasts(gallery);
 	};
 
 	render() {
@@ -33,21 +26,22 @@ class Main extends React.Component {
 	          <option value="1">One Horn</option>
 	          <option value="2">Two Horns</option>
 	          <option value="3">Three Horns</option>
-	          <option value="more">More Than Three</option>
+	          <option value="100">More Than Three</option>
 	        </Form.Control>
 	      </Container>
 	      {
-	        this.props.JsonGivenData.map((beast) => {
-	          return (
+	        this.props.allBeasts.map((beast, index) => (
 	            <HornedBeasts
+				  key={index}
+				  index={index}
 	              title={beast.title}
 	              imageUrl={beast.image_url}
 	              description={beast.description}
 	              horns={beast.horns}
 	              gettingTheModal={this.props.gettingTheModal}
 	            />
-	          );
-	        })
+	        ),
+	        )
 	      }
 	    </div>
 	  );

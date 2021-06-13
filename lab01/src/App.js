@@ -13,6 +13,7 @@ export class App extends Component {
 	  this.state = {
       show: false,
       SelectedProps: {},
+	  allBeasts: JsonGivenData,
 	  };
   };
 	
@@ -29,10 +30,8 @@ export class App extends Component {
 	  });
 	}
 
-	showingResultsBasedOnTheForm=(numberOfHornsBased)=>{
-	  this.setState({
-	    JsonGivenData:numberOfHornsBased,
-	  });
+	updateAllBeasts=(allBeasts)=>{
+	  this.setState({allBeasts});
 	  }
 
 	render() {
@@ -44,6 +43,8 @@ export class App extends Component {
 	          JsonGivenData={JsonGivenData}
 			  gettingTheModal={this.gettingTheModal}
 			  SelectedProps={this.state.SelectedProps}
+			  updateAllBeasts={this.updateAllBeasts}
+			  allBeasts={this.state.allBeasts}
 	        />
 	        <SelectedBeast
 	          show={this.state.show}
