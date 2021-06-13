@@ -22,7 +22,9 @@ export class App extends Component {
 	    show:!this.state.show,
 	    SelectedProps: previosProps,
 		  });
+		  console.log(this.state.SelectedProps);
 	}
+
 
 	closingTheModal = () => {
 	  this.setState({
@@ -39,7 +41,6 @@ export class App extends Component {
 	      <div>
 	        <Header />
 	        <Main 
-			  showingResultsBasedOnTheForm={this.showingResultsBasedOnTheForm}
 	          JsonGivenData={JsonGivenData}
 			  gettingTheModal={this.gettingTheModal}
 			  SelectedProps={this.state.SelectedProps}

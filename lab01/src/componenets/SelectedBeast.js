@@ -11,13 +11,14 @@ export class SelectedBeast extends Component {
   }
   
   render() {
+	  console.log(this.props.SelectedProps);
 	  return ( 
 	    <div>
         <Modal show={this.props.show}>
           <Modal.Header>
 			  <Modal.Title>{this.state.SelectedItem.title}</Modal.Title>
           </Modal.Header>
-          <Modal.Body><img src={this.state.SelectedItem.imageUrl} alt={this.state.SelectedItem.title} width='100%'/>
+          <Modal.Body><img src={this.props.SelectedProps.imageUrl} alt={this.state.SelectedItem.title} width='100%'/>
 		  <p>{this.state.SelectedItem.description}</p>
 		  </Modal.Body>
           <Modal.Footer>
