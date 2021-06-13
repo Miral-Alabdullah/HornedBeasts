@@ -15,7 +15,7 @@ class HornedBeasts extends React.Component {
 	  this.setState({
 	    vote: tempVote+=1,
 	  });
-	  this.props.gettingTheModal();
+	  this.props.gettingTheModal(this.props);
 	}
 
 

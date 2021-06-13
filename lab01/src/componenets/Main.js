@@ -21,7 +21,7 @@ class Main extends React.Component {
 	  } else {
 	    showingResults = JsonGivenData;
 	  }
-	  this.props.showingResultsBasedOnTheForm(showingResults);
+	  this.props.showingResultsBasedOnTheForm(this.props.SelectedProps);
 	};
 
 	render() {
@@ -45,7 +45,6 @@ class Main extends React.Component {
 	              description={beast.description}
 	              horns={beast.horns}
 	              gettingTheModal={this.props.gettingTheModal}
-	              Selected={this.props.Selected}
 	            />
 	          );
 	        })
