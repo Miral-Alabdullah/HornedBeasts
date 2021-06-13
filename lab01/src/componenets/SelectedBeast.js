@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Button, Modal} from 'react-bootstrap';
-import Card from 'react-bootstrap/Card';
 
 export class SelectedBeast extends Component {
   constructor(props) {
